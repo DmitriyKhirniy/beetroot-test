@@ -1,3 +1,14 @@
+.filters-container {
+  width: 400px;
+
+  .filters {
+    display: flex;
+    .filter {
+      margin: 16px;
+    }
+  }
+}
+
 table {
   border-collapse: separate;
   border-spacing: 0;

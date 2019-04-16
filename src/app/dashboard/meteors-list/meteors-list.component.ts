@@ -60,7 +60,7 @@ export class MeteorsListComponent implements OnChanges {
     let filteredSet = [...this.adjustedList];
     const moreFilterValue: number = Number(this.moreFilter);
 
-    if (this.selectedYears.length) {
+    if (this.selectedYears && this.selectedYears.length) {
       filteredSet = filteredSet.filter(item => this.selectedYears.some((year => year === item._year)));
     }
 

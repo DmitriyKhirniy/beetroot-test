@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { MeteorsListComponent } from './meteors-list.component';
 import { CommonModule } from '@angular/common';
-
-import {MultiSelectModule} from 'primeng/multiselect';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MeteorsListComponent } from './meteors-list.component';
 import { MeteorsListService } from './meteors-list.service';
+
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   imports: [

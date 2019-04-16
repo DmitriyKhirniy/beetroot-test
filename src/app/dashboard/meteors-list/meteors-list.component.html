@@ -1,16 +1,29 @@
 <div>
-  <div *ngIf="items">
+  <div *ngIf="items" class="filters-container">
     <h4>Filters</h4>
-    <p-multiSelect [options]="years" [(ngModel)]="selectedYears" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
 
-    <input [(ngModel)]="moreFilter">
+    <div class="filters">
+      <div class="filter">
+        <p-multiSelect [options]="years" [(ngModel)]="selectedYears" [panelStyle]="{minWidth:'12em'}" defaultLabel="Years"></p-multiSelect>
+      </div>
 
-    <button (click)="applyFilters()">Apply Filters</button>
-    <button (click)="resetFilters()">Reset Filters</button>
+      <div class="filter">
+        <label>
+          MaxMass
+          <input [(ngModel)]="moreFilter">
+        </label>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button (click)="applyFilters()">Apply Filters</button>
+      <button (click)="resetFilters()">Reset Filters</button>
+    </div>
   </div>
 
+  <h4>Items: {{list?.length}}</h4>
+
   <table>
-    <caption>Items: {{list?.length}}</caption>
     <thead>
      <tr>
        <th>Name</th>
