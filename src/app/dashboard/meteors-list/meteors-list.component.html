@@ -1,0 +1,53 @@
+<div>
+  <div *ngIf="items">
+    <h4>Filters</h4>
+    <p-multiSelect [options]="years" [(ngModel)]="selectedYears" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+
+    <input [(ngModel)]="moreFilter">
+
+    <button (click)="applyFilters()">Apply Filters</button>
+    <button (click)="resetFilters()">Reset Filters</button>
+  </div>
+
+  <table>
+    <caption>Items: {{list?.length}}</caption>
+    <thead>
+     <tr>
+       <th>Name</th>
+       <th>Mass</th>
+       <th>Fall</th>
+       <th>Name Type</th>
+       <th>Year</th>
+       <th>Reclat</th>
+       <th>Recclass</th>
+       <th>Reclong</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let item of list;trackBy: trackBy">
+       <td>
+         <strong class="book-title">{{item.name}}</strong>
+         <span class="text-offset">{{item.geolocation?.type}} ({{item.geolocation?.coordinates}})</span>
+       </td>
+       <td>{{item.mass || 'Unknown'}}</td>
+       <td>{{item.fall}}</td>
+       <td>{{item.nametype}}</td>
+       <td>{{item._year}}</td>
+       <td>{{item.reclat}}</td>
+       <td>{{item.recclass}}</td>
+       <td>{{item.reclong}}</td>
+     </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="showMessage">
+    <div *ngIf="firstYear;else noResults">
+      <p>mass was not found, jumping to first-year where there is a mass that fits the criteria is <b>{{firstYear}}</b></p>
+
+      Press button if you want to filter by this year <button (click)="filterByYear()">Filter</button>
+    </div>
+    <ng-template #noResults>
+      <p>No result found</p>
+    </ng-template>
+  </div>
+</div>
